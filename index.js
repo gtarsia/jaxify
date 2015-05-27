@@ -1,1 +1,1 @@
-exports.module = require('./lib/jaxify');
+module.exports = require('./lib/jaxify');

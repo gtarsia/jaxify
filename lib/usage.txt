@@ -1,0 +1,22 @@
+Usage: jaxify {OPTIONS}
+
+Standard Options:
+
+    --clientfile, -c  Write the client output to this file.
+                      If unspecified, use 'client.jaxi.js'
+
+    --serverfile, -s  Write the server output to this file.
+                      If unspecified, use 'server.jaxi.js'
+
+     --inputfile, -i  Use this file as input.
+                      If unspecified, use 'jaxi.js'
+
+     --webserver, -w  Use the specified webserver.
+                      Options are 'express' or 'hapi'.
+                      If unspecified, 'express' is used.
+
+          --ajax, -a  Use the specified client side ajax library.
+                      Options are 'jquery', 'superagent'.
+                      If unspecified, 'jquery' is used.
+
+          --help, -h  Show this message
