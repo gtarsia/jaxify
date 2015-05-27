@@ -1,0 +1,33 @@
+{
+  "name": "jaxify",
+  "version": "0.0.0",
+  "description": "A browser/server ajax calls code generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erandros/jaxify"
+  },
+  "keywords": [
+    "ajax",
+    "generator"
+  ],
+  "author": "erandros",
+  "bin": {
+    "jaxify": "./index.js"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erandros/jaxify/issues"
+  },
+  "homepage": "https://github.com/erandros/jaxify",
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "should": "^6.0.3"
+  },
+  "dependencies": {
+    "optimist": "^0.6.1"
+  }
+}
