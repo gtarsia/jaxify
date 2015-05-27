@@ -2,6 +2,10 @@
 
 Generate client and server side ajax calls code.
 
+# why
+
+Because boilerplate. And jQuery promise.
+
 # how
 
 1) Write a `jaxi.js` file like this:
@@ -24,7 +28,7 @@ var ajax = {
 }
 ```
 
-2) Run `jaxify`in a terminal.
+2) Run `jaxify`in a terminal to generate a `client.jaxi.js` and a `server.jaxi.js`
 
 3) Look at the magic:  
 
@@ -38,14 +42,15 @@ var ajax = {
             data: {filter: filter}
         })
     },
-    delete: function(data) {
+    delete: function() {
         return $.ajax({
             url: '/delete',
-            method: 'delete',
-            data: data
+            method: 'delete'
         })
     }
 }
+// $.ajax returns a jqXHR, that implements the promise interface, so you can do 
+ajax.find(1, false).done(function(res) { });
 ```  
 
 `server.jaxi.js`
@@ -89,62 +94,6 @@ var app = require('express');
 require('server.jaxi')(app);
 ```
 
-Use a [node](http://nodejs.org)-style `require()` to organize your browser code
-and load modules installed by [npm](https://www.npmjs.com).
-
-browserify will recursively analyze all the `require()` calls in your app in
-order to build a bundle you can serve up to the browser in a single `<script>`
-tag.
-
-[![build status](https://secure.travis-ci.org/substack/node-browserify.png)](http://travis-ci.org/substack/node-browserify)
-
-![browserify!](http://substack.net/images/browserify_logo.png)
-
-# getting started
-
-If you're new to browserify, check out the
-[browserify handbook](https://github.com/substack/browserify-handbook)
-and the resources on [browserify.org](http://browserify.org/).
-
-Check out [browserify search](http://browserifysearch.org/) to find
-browserify-compatible packages on npm.
-
-# example
-
-Whip up a file, `main.js` with some `require()`s in it. You can use relative
-paths like `'./foo.js'` and `'../lib/bar.js'` or module paths like `'gamma'`
-that will search `node_modules/` using
-[node's module lookup algorithm](https://github.com/substack/node-resolve).
-
-``` js
-var foo = require('./foo.js');
-var bar = require('../lib/bar.js');
-var gamma = require('gamma');
-
-var elem = document.getElementById('result');
-var x = foo(100) + bar('baz');
-elem.textContent = gamma(x);
-```
-
-Export functionality by assigning onto `module.exports` or `exports`:
-
-``` js
-module.exports = function (n) { return n * 111 }
-```
-
-Now just use the `browserify` command to build a bundle starting at `main.js`:
-
-```
-$ browserify main.js > bundle.js
-```
-
-All of the modules that `main.js` needs are included in the `bundle.js` from a
-recursive walk of the `require()` graph using
-[required](https://github.com/defunctzombie/node-required).
-
-To use this bundle, just toss a `<script src="bundle.js"></script>` into your
-html!
-
 # install
 
 With [npm](http://npmjs.org) do:
@@ -156,36 +105,28 @@ npm install -g jaxify
 # usage
 
 ```
-Usage: browserify [entry files] {OPTIONS}
+Usage: jaxify [entry files] {OPTIONS}
 
 Standard Options:
 
-    --outfile, -o  Write the browserify bundle to this file.
-                   If unspecified, browserify prints to stdout.
+    --clientfile, -c  Write the client output to this file.
+                      If unspecified, use 'client.jaxi.js'
+		      
+    --serverfile, -s  Write the server output to this file.
+                      If unspecified, use 'server.jaxi.js'
 
-    --require, -r  A module name or file to bundle.require()
-                   Optionally use a colon separator to set the target.
+     --inputfile, -i  Use this file as input.
+                      If unspecified, use 'jaxi.js'
+    		     
+     --webserver, -w  Use the specified webserver.
+                      Options are 'express' or 'hapi'.
+                      If unspecified, 'express' is used.
 
-      --entry, -e  An entry point of your app
-  
-     --ignore, -i  Replace a file with an empty stub. Files can be globs.
- 
-    --exclude, -u  Omit a file from the output bundle. Files can be globs.
+          --ajax, -a  Use the specified client side ajax library.
+                      Options are 'jquery', 'superagent'.
+                      If unspecified, 'jquery' is used.
 
-   --external, -x  Reference a file from another bundle. Files can be globs.
-  
-  --transform, -t  Use a transform module on top-level files.
- 
-    --command, -c  Use a transform command on top-level files.
-   
-  --standalone -s  Generate a UMD bundle for the supplied export name.
-                   This bundle works with other module systems and sets the name
-                   given as a window global if no module system is found.
-  
-       --debug -d  Enable source maps that allow you to debug your files
-                   separately.
-
-       --help, -h  Show this message
+          --help, -h  Show this message
 
 For advanced options, type `browserify --help advanced`.
 
