@@ -9,8 +9,10 @@ Generate client and server side ajax calls code.
 var ajax = {
     find: {
         method: 'get',
-        fn: function() {
-            return 'Found'
+        url: '/find/:id',
+        fn: function(id, filter) {
+            if (filter) return 'James';
+            return ['Jimmy', 'James', 'Found'][id];
         }
     },
     delete: {
@@ -29,11 +31,11 @@ var ajax = {
 `client.jaxi.js`
 ```javascript
 var ajax = {
-    find: function(data) {
+    find: function(id, filter) {
         return $.ajax({
-            url: '/find',
+            url: '/find/' + id,
             method: 'get',
-            data: data
+            data: {filter: filter}
         })
     },
     delete: function(data) {
@@ -50,11 +52,11 @@ var ajax = {
 ```javascript
 
 function setExpress(app) {
-    defaultize(ajax);
     for (var name in ajax) {
         var action = ajax[name];
-        app[action.method]('/' + name, function(req, res) {
-            ajax
+        var url = action.url ? action.url : '/' + name;
+        app[action.method](url, function(req, res) {
+            action.fn(req, res);
         });
     }
 }
@@ -62,14 +64,18 @@ function setExpress(app) {
 var ajax = {
     find: {
         method: 'get',
-        fn: function() {
-            return 'Found';
+        url: '/find/:id',
+        fn: function(req, res) {
+            var id = req.params.id;
+            var filter = req.body.filter;
+            if (filter) res.send('James')
+			res.send(['Jimmy', 'James', 'Found'][id]);
         }
     },
     delete: {
         method: 'delete',
-        fn: function() {
-            return 'Deleted';
+        fn: function(req, res) {
+            res.send('Deleted');
         }
     }
 }
