@@ -31,6 +31,7 @@
     "escodegen": "^1.6.1",
     "esprima": "^2.2.0",
     "minimist": "^1.1.1",
+    "mustache": "^2.0.0",
     "yargs": "^3.9.1"
   }
 }
