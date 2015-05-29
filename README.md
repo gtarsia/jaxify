@@ -15,14 +15,14 @@ var ajax = {
         method: 'get',
         url: '/find/:id',
         fn: function(id, filter) {
-            if (filter) return 'James';
-            return ['Jimmy', 'James', 'Found'][id];
+            if (filter) reply('James');
+            reply(['Jimmy', 'James', 'Found'][id]);
         }
     },
     delete: {
         method: 'delete',
         fn: function() {
-            return 'Deleted';
+            reply('Deleted');
         }
     }
 }
