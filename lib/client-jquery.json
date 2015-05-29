@@ -64,18 +64,10 @@
 																	},
 																	"computed": false,
 																	"value": {
-																		"type": "BinaryExpression",
-																		"operator": "+",
-																		"left": {
-																			"type": "Literal",
-																			"value": "{{parametrizedUrl}}",
-																			"raw": "'{{parametrizedUrl}}'"
-																		},
-																		"right": {
-																			"type": "Identifier",
-																			"name": "id"
-																		}
-																	},
+                                                                        "type": "Literal",
+																			"value": "|{{name}}.parametrizedUrl|",
+																			"raw": "'|{{name}}.parametrizedUrl|'"
+                                                                    },
 																	"kind": "init",
 																	"method": false,
 																	"shorthand": false
