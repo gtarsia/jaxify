@@ -1,0 +1,176 @@
+{
+    "type": "Program",
+    "body": [
+        {
+            "type": "VariableDeclaration",
+            "declarations": [
+                {
+                    "type": "VariableDeclarator",
+                    "id": {
+                        "type": "Identifier",
+                        "name": "ajax"
+                    },
+                    "init": {
+                        "type": "ObjectExpression",
+                        "properties": [
+							{{#actions}}
+                            {
+                                "type": "Property",
+                                "key": {
+                                    "type": "Identifier",
+                                    "name": "{{name}}"
+                                },
+                                "computed": false,
+                                "value": {
+                                    "type": "ObjectExpression",
+                                    "properties": [
+                                        {
+                                            "type": "Property",
+                                            "key": {
+                                                "type": "Identifier",
+                                                "name": "method"
+                                            },
+                                            "computed": false,
+                                            "value": {
+                                                "type": "Literal",
+                                                "value": "{{method}}",
+                                                "raw": "'{{method}}'"
+                                            },
+                                            "kind": "init",
+                                            "method": false,
+                                            "shorthand": false
+                                        },
+                                        {
+                                            "type": "Property",
+                                            "key": {
+                                                "type": "Identifier",
+                                                "name": "url"
+                                            },
+                                            "computed": false,
+                                            "value": {
+                                                "type": "Literal",
+                                                "value": "{{{url}}}",
+                                                "raw": "'{{{url}}}'"
+                                            },
+                                            "kind": "init",
+                                            "method": false,
+                                            "shorthand": false
+                                        },
+                                        {
+                                            "type": "Property",
+                                            "key": {
+                                                "type": "Identifier",
+                                                "name": "fn"
+                                            },
+                                            "computed": false,
+                                            "value": {
+                                                "type": "FunctionExpression",
+                                                "id": null,
+                                                "params": [
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "req"
+                                                    },
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "res"
+                                                    }
+                                                ],
+                                                "defaults": [],
+                                                "body": {
+                                                    "type": "BlockStatement",
+                                                    "body": [
+                                                        {
+                                                            "type": "VariableDeclaration",
+                                                            "declarations": [
+                                                        		{{#urlParams}}
+                                                                {
+                                                                    "type": "VariableDeclarator",
+                                                                    "id": {
+                                                                        "type": "Identifier",
+                                                                        "name": "{{name}}"
+                                                                    },
+                                                                    "init": {
+                                                                        "type": "MemberExpression",
+                                                                        "computed": false,
+                                                                        "object": {
+                                                                            "type": "MemberExpression",
+                                                                            "computed": false,
+                                                                            "object": {
+                                                                                "type": "Identifier",
+                                                                                "name": "req"
+                                                                            },
+                                                                            "property": {
+                                                                                "type": "Identifier",
+                                                                                "name": "params"
+                                                                            }
+                                                                        },
+                                                                        "property": {
+                                                                            "type": "Identifier",
+                                                                            "name": "{{name}}"
+                                                                        }
+                                                                    }
+                                                                }{{^last}}, {{/last}}
+                                                        		{{/urlParams}}
+                                                            ],
+                                                            "kind": "var"
+                                                        },
+                                                        {
+                                                            "type": "VariableDeclaration",
+                                                            "declarations": [
+                                                                {{#bodyParams}}
+                                                                {
+                                                                    "type": "VariableDeclarator",
+                                                                    "id": {
+                                                                        "type": "Identifier",
+                                                                        "name": "{{name}}"
+                                                                    },
+                                                                    "init": {
+                                                                        "type": "MemberExpression",
+                                                                        "computed": false,
+                                                                        "object": {
+                                                                            "type": "MemberExpression",
+                                                                            "computed": false,
+                                                                            "object": {
+                                                                                "type": "Identifier",
+                                                                                "name": "req"
+                                                                            },
+                                                                            "property": {
+                                                                                "type": "Identifier",
+                                                                                "name": "body"
+                                                                            }
+                                                                        },
+                                                                        "property": {
+                                                                            "type": "Identifier",
+                                                                            "name": "{{name}}"
+                                                                        }
+                                                                    }
+                                                                }{{^last}}, {{/last}}
+                                                                {{/bodyParams}}
+                                                            ],
+                                                            "kind": "var"
+                                                        }
+                                                    ]
+                                                },
+                                                "generator": false,
+                                                "expression": false
+                                            },
+                                            "kind": "init",
+                                            "method": false,
+                                            "shorthand": false
+                                        }
+                                    ]
+                                },
+                                "kind": "init",
+                                "method": false,
+                                "shorthand": false
+                            }{{^last}}, {{/last}}
+							{{/actions}}
+                        ]
+                    }
+                }
+            ],
+            "kind": "var"
+        }
+    ]
+}
