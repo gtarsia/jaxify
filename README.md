@@ -127,6 +127,7 @@ Standard Options:
                       If unspecified, 'jquery' is used.
 
           --help, -h  Show this message
+```
 
 # license
 
