@@ -4,7 +4,7 @@ Generate client and server side ajax calls code.
 
 # why
 
-Because boilerplate.
+Because boilerplate
 
 # how
 
@@ -119,12 +119,10 @@ Standard Options:
                       If unspecified, use 'jaxi.js'
     		     
      --webserver, -w  Use the specified webserver.
-                      Options are 'express' or 'hapi'.
-                      If unspecified, 'express' is used.
+                      Options are 'express'.
 
           --ajax, -a  Use the specified client side ajax library.
-                      Options are 'jquery', 'superagent'.
-                      If unspecified, 'jquery' is used.
+                      Options are 'jquery'.
 
           --help, -h  Show this message
 ```
