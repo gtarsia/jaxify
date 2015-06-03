@@ -13,24 +13,24 @@
 					"init": {
 						"type": "ObjectExpression",
 						"properties": [
-							{{#actions}}
+							{#actions}
 							{
 								"type": "Property",
 								"key": {
 									"type": "Identifier",
-									"name": "{{name}}"
-								},
+									"name": "{name}"
+								},	
 								"computed": false,
 								"value": {
 									"type": "FunctionExpression",
 									"id": null,
 									"params": [
-										{{#params}}
+										{#params}
 										{
 											"type": "Identifier",
-											"name": "{{name}}"
-										}{{^last}}, {{/last}}
-										{{/params}}
+											"name": "{name}"
+										}{@sep}, {/sep}
+										{/params}
 									],
 									"defaults": [],
 									"body": {
@@ -65,8 +65,8 @@
 																	"computed": false,
 																	"value": {
                                                                         "type": "Literal",
-																			"value": "|{{name}}.parametrizedUrl|",
-																			"raw": "'|{{name}}.parametrizedUrl|'"
+																			"value": "|{name}.parametrizedUrl|",
+																			"raw": "'|{name}.parametrizedUrl|'"
                                                                     },
 																	"kind": "init",
 																	"method": false,
@@ -81,13 +81,15 @@
 																	"computed": false,
 																	"value": {
 																		"type": "Literal",
-																		"value": "{{method}}",
-																		"raw": "'{{method}}'"
+																		"value": "{method}",
+																		"raw": "'{method}'"
 																	},
 																	"kind": "init",
 																	"method": false,
 																	"shorthand": false
-																},
+																}
+																{?bodyParams}
+																,
 																{
 																	"type": "Property",
 																	"key": {
@@ -98,29 +100,30 @@
 																	"value": {
 																		"type": "ObjectExpression",
 																		"properties": [
-																			{{#bodyParams}}
+																			{#bodyParams}
 																			{
 																				"type": "Property",
 																				"key": {
 																					"type": "Identifier",
-																					"name": "{{name}}"
+																					"name": "{name}"
 																				},
 																				"computed": false,
 																				"value": {
 																					"type": "Identifier",
-																					"name": "{{name}}"
+																					"name": "{name}"
 																				},
 																				"kind": "init",
 																				"method": false,
 																				"shorthand": false
-																			}{{^last}}, {{/last}}
-																			{{/bodyParams}}
+																			}{@sep}, {/sep}
+																			{/bodyParams}
 																		]
 																	},
 																	"kind": "init",
 																	"method": false,
 																	"shorthand": false
 																}
+																{/bodyParams}
 															]
 														}
 													]
@@ -134,8 +137,8 @@
 								"kind": "init",
 								"method": false,
 								"shorthand": false
-							}{{^last}}, {{/last}}
-							{{/actions}}
+							}{@sep}, {/sep}
+							{/actions}
 						]
 					}
 				}
