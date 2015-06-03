@@ -28,7 +28,7 @@ var ajax = {
 }
 ```
 
-2) Run `jaxify`in a terminal to generate a `client.jaxi.js` and a `server.jaxi.js`
+2) Run `jaxify` in a terminal to generate a `client.jaxi.js` and a `server.jaxi.js`
 
 3) Look at the magic:  
 
