@@ -6,7 +6,10 @@ Generate client and server side ajax calls code.
 
 # why
 
-Because boilerplate
+* Code less. In the README.md example, I wrote an input file of 16 lines, and got two necessary files with a sum of around 30.  
+* It forces the developer to use the promise returned from `$.ajax` instead of `success`, `error` and `complete` properties. This is better because promises make code more readable.  
+* When you change something (ie: the url), you only have to modify one codebase. This is also true because of the previous point, ajax calls are meant to be defined once client side.  
+* It automatically maps parameters of `fn` that are in the url (like id in `/find/:id`) to `req.params`. And, the parameters of `fn`that are not in the url are mapped to `req.body`. No confusion between `req.params` and `req.body`. And because of this, client ajax methods can be called with simple code, for example: `ajax.find(1, false)` even if the first parameter is a url parameter, and the other is mapped to `data`.
 
 # how
 
