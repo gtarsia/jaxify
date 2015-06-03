@@ -1,5 +1,7 @@
 # jaxify
 
+[![Join the chat at https://gitter.im/erandros/jaxify](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/erandros/jaxify?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Generate client and server side ajax calls code.
 
 # why
