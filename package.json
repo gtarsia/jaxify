@@ -16,7 +16,7 @@
   ],
   "author": "erandros",
   "bin": {
-    "jaxify": "bin/cmd.js"
+    "jaxify": "bin/cmd"
   },
   "license": "MIT",
   "bugs": {
