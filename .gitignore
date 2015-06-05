@@ -3,3 +3,5 @@ node_modules
 
 *jaxi.js
 _dump
+
+*.tgz

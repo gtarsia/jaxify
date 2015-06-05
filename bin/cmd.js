@@ -1,5 +1,6 @@
 var jaxify = require('../')
-   ,fs = require('fs');
+   ,fs = require('fs')
+   ,path = require('path');
 var argv = require('minimist')(process.argv.slice(2), {
     alias: {
         'i': 'inputfile',
@@ -18,7 +19,8 @@ var argv = require('minimist')(process.argv.slice(2), {
     }
 });
 
-var usage = fs.readFileSync('usage.txt', 'utf8');
+var usage = fs.readFileSync(
+    path.resolve(__dirname, 'usage.txt'), 'utf8');
 var help = function(msg) {
     console.log(msg);
     console.log('');
