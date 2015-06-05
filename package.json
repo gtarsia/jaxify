@@ -1,6 +1,6 @@
 {
   "name": "jaxify",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A browser/server ajax calls code generator",
   "main": "index.js",
   "scripts": {
